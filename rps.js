@@ -49,4 +49,43 @@ function game(){
     }
     console.log('thanks for playing')
 }
-game()
+window.onload = function(){
+    let c = 0
+    let u = 0
+    const ROCK = document.querySelector('#ROCK')
+    const PAPER = document.querySelector('#PAPER')
+    const SCISSORS = document.querySelector('#SCISSORS')
+    const result = document.querySelector('.result')
+    const user = document.querySelector('#user')
+    const computer = document.querySelector('#computer')
+    ROCK.addEventListener('click', () => {
+        result.innerHTML = (playRound('ROCK', computerPlay()))
+        if (result.innerHTML.slice(0, 5) == 'You w'){
+            u++;
+        }else if(result.innerHTML.slice(0, 5) == 'You l'){
+            c++;
+        }
+        user.innerHTML = 'USER: '+ u
+        computer.innerHTML = 'COMPUTER: '+ c
+    });
+    SCISSORS.addEventListener('click', () => {
+        result.innerHTML = (playRound('SCISSORS', computerPlay()))
+        if (result.innerHTML.slice(0, 5) == 'You w'){
+            u++;
+        }else if(result.innerHTML.slice(0, 5) == 'You l'){
+            c++;
+        }
+        user.innerHTML = 'USER: '+ u
+        computer.innerHTML = 'COMPUTER: '+ c
+    });
+    PAPER.addEventListener('click', () => {
+        result.innerHTML = (playRound('PAPER', computerPlay()))
+        if (result.innerHTML.slice(0, 5) == 'You w'){
+            u++;
+        }else if(result.innerHTML.slice(0, 5) == 'You l'){
+            c++;
+        }
+        user.innerHTML = 'USER: '+ u
+        computer.innerHTML = 'COMPUTER: '+ c
+    });
+};
